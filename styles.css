@@ -1,0 +1,238 @@
+/* ---------------------------
+   Variáveis e reset simples
+   --------------------------- */
+:root{
+  --bg:#f7f7f9;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --brand:#0f766e;
+  --accent:#10b981;
+  --maxw:1100px;
+  --radius:12px;
+  --gap:20px;
+  --fw-regular: 400;
+  --fw-medium: 600;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg, var(--bg) 0%, #f2f6f4 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding-bottom:60px;
+}
+a{color:inherit; text-decoration:none}
+img{max-width:100%;display:block}
+main{max-width:var(--maxw);margin:24px auto;padding:20px;}
+
+/* ---------------------------
+   Header / Hero
+   --------------------------- */
+header {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 5px;
+  box-shadow: 0 6px 18px rgba(12,15,20,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* separa título à esquerda e imagem à direita */
+  gap: 18px;
+  flex-wrap: wrap; /* empilha no mobile */
+}
+
+/* garante que o texto do título e subtítulo fiquem alinhados */
+.brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+header .site-title h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+header .site-title p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 4px 0 0;
+}
+header .site-title p em {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* imagem à direita */
+.header-right {
+  flex-shrink: 0;
+}
+
+.header-image {
+  width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+header .site-title h1 {
+  font-size: 30px; /* tamanho maior e legível */
+  font-weight: 600;
+  color: #0f172a; /* mantém contraste e legibilidade */
+}
+
+.brand{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+.logo{
+  width:56px;height:56px;border-radius:12px;
+  background:linear-gradient(135deg,var(--brand),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:white;font-weight:700;
+  box-shadow:0 6px 14px rgba(16,185,129,0.12);
+}
+.site-title h1{margin:0;font-size:20px;font-weight:700}
+.site-title p{margin:2px 0 0;color:var(--muted);font-size:13px}
+
+.nav-actions{display:flex;gap:12px;align-items:center}
+.btn{
+  padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600;
+  background:transparent;color:var(--brand);border:1px solid rgba(15,118,110,0.12)
+}
+.btn-primary{
+  background:var(--brand);
+  color:white;
+  border:none;
+  box-shadow:0 8px 20px rgba(15,118,110,0.14);
+}
+
+/* ---------------------------
+   Layout grid
+   --------------------------- */
+.grid{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:var(--gap);
+  margin-top:18px;
+}
+
+/* ---------------------------
+   Card
+   --------------------------- */
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:0 6px 18px rgba(12,15,20,0.04);
+}
+
+h2{margin-top:0;margin-bottom:12px}
+p.lead{color:var(--muted);margin:0 0 14px}
+
+/* ---------------------------
+   Problema (infográfico simples)
+   --------------------------- */
+.problem{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+.problem-list{flex:1}
+.bullets{padding-left:18px;margin:10px 0;}
+.stat{
+  width:120px;height:120px;border-radius:12px;background:#f1faf8;border:1px dashed rgba(16,185,129,0.12);
+  display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--brand);
+  flex-shrink:0;
+}
+
+/* ---------------------------
+   Abas de transtornos
+   --------------------------- */
+.tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+}
+.tab-btn{
+  padding:8px 12px;border-radius:10px;border:1px solid rgba(12,15,20,0.06);
+  background:transparent;cursor:pointer;font-weight:600;color:var(--brand);
+}
+.tab-btn.active{background:var(--brand);color:white;border:none}
+
+.tab-panel{display:none;padding:12px 0}
+.tab-panel.active{display:block}
+.tab-panel h3 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: left;
+  border-left: 4px solid var(--brand);
+  padding-left: 8px;
+}
+
+/* ---------------------------
+   Two-column region inside main column
+   --------------------------- */
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:16px;
+}
+.media-placeholder{
+  min-height:160px;border-radius:10px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;color:var(--muted);
+}
+
+/* ---------------------------
+   Apoio & newsletter
+   --------------------------- */
+.support-list{list-style:none;padding:0;margin:0}
+.support-list li{padding:8px 0;border-bottom:1px dashed #eef2f7;color:var(--muted)}
+
+.newsletter{
+  display:flex;flex-direction:column;gap:8px;
+}
+.input, .textarea{
+  padding:10px;border-radius:8px;border:1px solid #e6eef0;background:white;font-size:14px;
+}
+.small{font-size:13px;color:var(--muted)}
+
+/* ---------------------------
+   Blog list
+   --------------------------- */
+.posts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.post{padding:12px;border-radius:10px;background:#fff;border:1px solid #f1f5f9}
+.post h4{margin:0 0 8px;font-size:15px}
+.post p{margin:0;color:var(--muted);font-size:13px}
+
+/* ---------------------------
+   Footer
+   --------------------------- */
+footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+/* ---------------------------
+   Mobile responsiveness
+   --------------------------- */
+@media (max-width:960px){
+  .grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .posts{grid-template-columns:1fr}
+  .nav-actions{gap:8px}
+  header{flex-direction:column;align-items:flex-start;gap:12px}
+}
+
+/* small touches */
+.muted{color:var(--muted)}
+.pill{display:inline-block;padding:6px 10px;background:#f1f5f4;border-radius:999px;color:var(--brand);font-weight:700;font-size:13px}
+.hr{height:1px;background:#eef2f3;margin:16px 0;border-radius:6px}
