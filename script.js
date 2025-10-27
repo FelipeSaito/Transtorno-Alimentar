@@ -1,64 +1,48 @@
-// ---------------------------
-// JS: abas, newsletter, modal, data
-// ---------------------------
-(function(){
-  // Tabs
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const panels = document.querySelectorAll('.tab-panel');
+document.addEventListener('DOMContentLoaded', () => {
+  // Para cada grupo de abas
+  document.querySelectorAll('article .tabs').forEach(tablist => {
+    // O container "pai" das panels é o article onde o tablist está
+    const container = tablist.closest('article');
+    const buttons = Array.from(tablist.querySelectorAll('.tab-btn'));
+    const panels = Array.from(container.querySelectorAll('.tab-panel'));
 
-  tabBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      tabBtns.forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false') });
-      panels.forEach(p=>{ p.classList.remove('active'); p.setAttribute('hidden',''); });
+    // Função que ativa uma aba pelo id alvo
+    const activate = (targetId) => {
+      // atualiza botões
+      buttons.forEach(btn => {
+        const isActive = btn.dataset.target === targetId;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
 
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected','true');
-      const target = document.getElementById(btn.dataset.target);
-      if(target){
-        target.classList.add('active');
-        target.removeAttribute('hidden');
-      }
+      // atualiza painéis (somente os deste article)
+      panels.forEach(panel => {
+        const isTarget = panel.id === targetId;
+        if (isTarget) {
+          panel.removeAttribute('hidden');
+        } else {
+          panel.setAttribute('hidden', '');
+        }
+      });
+    };
+
+    // Estado inicial: se existir botão .active, ativa; senão ativa o primeiro
+    const initialBtn = buttons.find(b => b.classList.contains('active')) || buttons[0];
+    if (initialBtn) activate(initialBtn.dataset.target);
+
+    // Eventos de clique
+    buttons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = btn.dataset.target;
+        if (!targetId) return;
+
+        // Garante que o target existe dentro do mesmo article
+        const targetPanel = container.querySelector(`#${CSS.escape(targetId)}`);
+        if (!targetPanel) return;
+
+        activate(targetId);
+      });
     });
   });
-
-  // Newsletter form (simulação)
-  const form = document.getElementById('newsletter-form');
-  const msg = document.getElementById('newsletter-msg');
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-
-    if(!nome || !email){
-      msg.textContent = 'Preencha nome e e-mail.';
-      return;
-    }
-    // Simula envio
-    msg.textContent = 'Enviando...';
-    setTimeout(()=>{
-      msg.textContent = 'Inscrição confirmada! Em breve você receberá o jornal no seu e-mail.';
-      form.reset();
-    }, 900);
-  });
-
-  // Modal de PDF (teste)
-  const modal = document.getElementById('modal');
-  const openNews = document.getElementById('open-news');
-  const closeModal = document.getElementById('close-modal');
-  const sampleBtn = document.getElementById('sample-download');
-
-  function showModal(){ modal.style.display='flex'; modal.setAttribute('aria-hidden','false') }
-  function hideModal(){ modal.style.display='none'; modal.setAttribute('aria-hidden','true') }
-
-  openNews.addEventListener('click', showModal);
-  closeModal.addEventListener('click', hideModal);
-  sampleBtn.addEventListener('click', showModal);
-
-  // ano atual
-  document.getElementById('ano').textContent = new Date().getFullYear();
-
-  // acessibilidade rápida: fechar modal com ESC
-  document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape' && modal.style.display === 'flex') hideModal();
-  });
-})();
+});
