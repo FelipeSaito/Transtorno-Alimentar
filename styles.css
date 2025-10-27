@@ -498,13 +498,83 @@ p.lead{color:var(--muted);margin:0 0 14px}
   padding-left:12px;   /* mantém espaçamento */
   border-left:none;    /* remove a linha verde */
 }
+
+/* imagem inferior esquerda do article */
+.img-inferior-esquerda {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 120px;          /* ajuste conforme o tamanho desejado */
+  opacity: 0.9;          /* leve transparência */
+  border-radius: 10px;   /* bordas suaves */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.img-inferior-esquerda:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.duas-colunas {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Colunas */
+.col-esquerda {
+  flex: 1 1 48%;
+  min-width: 320px;
+}
+
+.col-direita {
+  flex: 1 1 48%;
+  min-width: 320px;
+}
+
+/* Imagem */
+.img-centro {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.img-centro img {
+  width: 85%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  opacity: 0.95;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.img-centro img:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .duas-colunas {
+    flex-direction: column;
+  }
+  .col-esquerda, .col-direita {
+    width: 100%;
+  }
+  .img-centro img {
+    width: 90%;
+  }
+}
 /* ---------------------------
    Footer
    --------------------------- */
 footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
 
 /* ---------------------------
-   Mobile responsiveness
+Mobile responsiveness
    --------------------------- */
 
 /* Larguras médias: respiro na grid */

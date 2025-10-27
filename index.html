@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     html { scroll-behavior: smooth; }
+    /* garante que o alvo do scroll não fique “colado” no topo se houver header fixo */
+    :target { scroll-margin-top: 16px; }
+
     .btn-verde{
       display:inline-block;
       background:#0f766e;
@@ -74,23 +77,24 @@
               </article>
 
               <article>
-              <h2>Padrões de beleza irreais: a raiz do problema</h2>
-                <div id="tab-anorexia" class="tab-panel active" role="tabpanel">
-                  <h3>Influência central:</h3>
+                
+                <div id="padroes-painel" class="tab-panel active" role="region" aria-labelledby="padroes-title">
+                  <h2 id="padroes-title">Padrões de beleza irreais: a raiz do problema</h2>
+                  <h3>Influência central</h3>
                   <p>As redes sociais têm papel fundamental na criação e manutenção de padrões de beleza irreais, moldando como os adolescentes percebem seus corpos.</p>
-                  <h3>Principais ideais difundidos:</h3>
-                  <p>Thin ideal — corpo excessivamente magro.</p>
-                  <p>⁠Fit ideal — corpo definido e musculoso.</p>
-                  <p>⁠Rosto de Instagram — pele lisa, traços simétricos e aparência “perfeita”, geralmente obtida com filtros, edições ou procedimentos estéticos..</p>
-                  <h3>Como isso é reforçado: </h3>
-                      <p>Os algoritmos priorizam imagens esteticamente homogêneas, tornando esses ideais cada vez mais visíveis e desejados.</p>
-                  <h3>Efeitos psicológicos:</h3>
-                    <ul class="bullets">
-                      <li>Distorção coletiva da autoimagem — a aparência real passa a ser vista como “insuficiente”.</li>
-                      <li>Insatisfação corporal e baixa autoestima.</li>
-                      <li>⁠Internalização da ideia de que é preciso mudar para ser aceito.</li>
-                    </ul>
-                  <h3>Consequências:</h3>
+                  <h3>Principais ideais difundidos</h3>
+                  <p><strong>Thin ideal</strong> — corpo excessivamente magro.</p>
+                  <p><strong>Fit ideal</strong> — corpo definido e musculoso.</p>
+                  <p><strong>Rosto de Instagram</strong> — pele lisa, traços simétricos e aparência “perfeita”, geralmente obtida com filtros, edições ou procedimentos estéticos.</p>
+                  <h3>Como isso é reforçado</h3>
+                  <p>Os algoritmos priorizam imagens esteticamente homogêneas, tornando esses ideais cada vez mais visíveis e desejados.</p>
+                  <h3>Efeitos psicológicos</h3>
+                  <ul class="bullets">
+                    <li>Distorção coletiva da autoimagem — a aparência real passa a ser vista como “insuficiente”.</li>
+                    <li>Insatisfação corporal e baixa autoestima.</li>
+                    <li>Internalização da ideia de que é preciso mudar para ser aceito.</li>
+                  </ul>
+                  <h3>Consequências</h3>
                   <p>O resultado é o aumento do risco de comportamentos alimentares disfuncionais e sofrimento psicológico entre adolescentes.</p>
                 </div>
               </article>
@@ -103,14 +107,14 @@
           <h2 id="transtornos-title">Transtornos Alimentares</h2>
 
           <div class="tabs" role="tablist" aria-label="Tipos de transtornos">
-            <button class="tab-btn active" role="tab" aria-selected="true" data-target="tab-anorexia">Anorexia Nervosa</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-bulimia">Bulimia Nervosa</button>
-            <button class="tab-btn" role="tab" aria-selected="false" data-target="tab-tca">Transtorno de Compulsão Alimentar (TCA)</button>
+            <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="painel-anorexia" id="tab-anorexia-btn" data-target="painel-anorexia">Anorexia Nervosa</button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="painel-bulimia" id="tab-bulimia-btn" data-target="painel-bulimia">Bulimia Nervosa</button>
+            <button class="tab-btn" role="tab" aria-selected="false" aria-controls="painel-tca" id="tab-tca-btn" data-target="painel-tca">Transtorno de Compulsão Alimentar (TCA)</button>
           </div>
 
           <!-- ANOREXIA -->
-          <div id="tab-anorexia" class="tab-panel active" role="tabpanel">
-            <h3>Sintomas:</h3>
+          <div id="painel-anorexia" class="tab-panel active" role="tabpanel" aria-labelledby="tab-anorexia-btn">
+            <h3>Sintomas</h3>
             <ul class="bullets">
               <li>Restrição alimentar intensa, medo excessivo de ganhar peso e imagem corporal distorcida.</li>
               <li>Medo intenso de engordar, mesmo estando abaixo do peso.</li>
@@ -118,7 +122,7 @@
               <li>Exercício físico excessivo e controle rígido de calorias.</li>
             </ul>
 
-            <h3>Riscos físicos e emocionais:</h3>
+            <h3>Riscos físicos e emocionais</h3>
             <ul class="bullets">
               <li>Desnutrição grave, queda de cabelo e enfraquecimento das unhas.</li>
               <li>Amenorreia (ausência de menstruação).</li>
@@ -127,7 +131,7 @@
               <li>Risco de falência de órgãos e morte por complicações cardíacas.</li>
             </ul>
 
-            <h3>Sinais de alerta:</h3>
+            <h3>Sinais de alerta</h3>
             <ul class="bullets">
               <li>Evita refeições em grupo ou inventa desculpas para não comer.</li>
               <li>Fala constantemente sobre dieta, peso e “alimentos proibidos”.</li>
@@ -137,8 +141,8 @@
           </div>
 
           <!-- BULIMIA -->
-          <div id="tab-bulimia" class="tab-panel" role="tabpanel" hidden>
-            <h3>Sintomas:</h3>
+          <div id="painel-bulimia" class="tab-panel" role="tabpanel" aria-labelledby="tab-bulimia-btn" hidden>
+            <h3>Sintomas</h3>
             <ul class="bullets">
               <li>Episódios recorrentes de compulsão alimentar (muita comida em pouco tempo).</li>
               <li>Comportamentos compensatórios: vômitos, laxantes, jejuns prolongados ou exercícios excessivos.</li>
@@ -146,7 +150,7 @@
               <li>Peso geralmente dentro da faixa normal (pode dificultar o diagnóstico).</li>
             </ul>
 
-            <h3>Riscos físicos e emocionais:</h3>
+            <h3>Riscos físicos e emocionais</h3>
             <ul class="bullets">
               <li>Desequilíbrio eletrolítico (perda de potássio e sódio).</li>
               <li>Problemas cardíacos e gastrointestinais.</li>
@@ -155,7 +159,7 @@
               <li>Risco de falência de órgãos e morte por complicações cardíacas.</li>
             </ul>
 
-            <h3>Sinais de alerta:</h3>
+            <h3>Sinais de alerta</h3>
             <ul class="bullets">
               <li>Vai ao banheiro logo após as refeições.</li>
               <li>Variações bruscas de peso.</li>
@@ -165,8 +169,8 @@
           </div>
 
           <!-- TCA -->
-          <div id="tab-tca" class="tab-panel" role="tabpanel" hidden>
-            <h3>Sintomas:</h3>
+          <div id="painel-tca" class="tab-panel" role="tabpanel" aria-labelledby="tab-tca-btn" hidden>
+            <h3>Sintomas</h3>
             <ul class="bullets">
               <li>Episódios frequentes de ingestão exagerada de alimentos, mesmo sem fome.</li>
               <li>Sensação de perda de controle durante a compulsão.</li>
@@ -174,7 +178,7 @@
               <li>Sentimentos de culpa, vergonha e arrependimento após os episódios.</li>
             </ul>
 
-            <h3>Riscos físicos e emocionais:</h3>
+            <h3>Riscos físicos e emocionais</h3>
             <ul class="bullets">
               <li>Obesidade, diabetes tipo 2 e hipertensão.</li>
               <li>Dores abdominais e problemas gastrointestinais.</li>
@@ -182,7 +186,7 @@
               <li>Impacto negativo na autoestima e na imagem corporal.</li>
             </ul>
 
-            <h3>Sinais de alerta:</h3>
+            <h3>Sinais de alerta</h3>
             <ul class="bullets">
               <li>Come grandes quantidades de comida em pouco tempo.</li>
               <li>Evita comer perto de outras pessoas.</li>
@@ -213,8 +217,8 @@
               <ul class="bullets">
                 <li>A relação entre ansiedade e transtornos alimentares é profunda e de mão dupla:</li>
                 <li>A ansiedade pode desencadear comportamentos alimentares desregulados;</li>
-                <li>Os próprios transtornos agravam a ansiedade.</li>
-                <li>O medo de engordar, a busca pelo controle e a autocrítica são sentimentos que levam a restrições severas, compulsões e comportamentos compensatórios..</li>
+                <li>Os próprios transtornos agravam a ansiedade;</li>
+                <li>O medo de engordar, a busca pelo controle e a autocrítica são sentimentos que levam a restrições severas, compulsões e comportamentos compensatórios.</li>
               </ul>
               <h3>⚠️ Importante: Esse ciclo de controle e culpa é difícil de romper sem apoio psicológico adequado.</h3>
             </div>
@@ -222,17 +226,16 @@
         </article>
 
         <!-- Blog / Notícias -->
-        <article class="card" style="margin-top:18px" id="blog" aria-labelledby="blog-estrategia">
-          <h2 id="blog-estrategia">🧩 Estratégias práticas para prevenção e cuidado </h2>
-          <!-- Removido id duplicado aqui -->
-          <div class="tab-panel active" role="tabpanel">
+        <article class="card" style="margin-top:18px" id="blog-estrategias" aria-labelledby="blog-estrategia">
+          <h2 id="blog-estrategia">Estratégias práticas para prevenção e cuidado </h2>
+          <div class="tab-panel active" role="region" aria-labelledby="blog-estrategia">
             <h3>Educação e conscientização digital</h3>
             <p>Ensinar jovens a reconhecer imagens editadas, conteúdos irreais e estratégias publicitárias reduz a vulnerabilidade às comparações e à insatisfação corporal.
-Programas que combinam atividades críticas sobre mídia com habilidades socioemocionais demonstram efeitos protetores importantes, fortalecendo a autoestima e o pensamento crítico.</p>
+              Programas que combinam atividades críticas sobre mídia com habilidades socioemocionais demonstram efeitos protetores importantes, fortalecendo a autoestima e o pensamento crítico.</p>
             <h3>Redução de exposição e tempo de tela</h3>
             <p>Diminuir o uso das redes ou evitar conteúdos problemáticos por algumas semanas pode reduzir significativamente sintomas ligados aos transtornos alimentares.
-Revisões e estudos longitudinais mostram uma associação consistente entre maior tempo em redes sociais, especialmente nas plataformas visuais, e aumento da insatisfação corporal e dos sintomas de transtornos alimentares.
-Algumas ações práticas incluem:</p>
+              Revisões e estudos longitudinais mostram uma associação consistente entre maior tempo em redes sociais, especialmente nas plataformas visuais, e aumento da insatisfação corporal e dos sintomas de transtornos alimentares.
+              Algumas ações práticas incluem:</p>
             <ul class="bullets">
               <li>Estabelecer janelas sem telas, como 60–90 minutos antes de dormir ou durante refeições e períodos de estudo.</li>
               <li>Participar de “desafios de redução” para avaliar o impacto no bem-estar e na autoimagem.</li>
@@ -241,7 +244,7 @@ Algumas ações práticas incluem:</p>
             </ul>
             <h3>Seguir perfis que promovam diversidade</h3>
             <p>Seguir perfis que representem corpos reais, diversidade e aceitação ajuda a reduzir a comparação social e melhora a relação com o corpo em curto prazo.
-Inserir conteúdos positivos no feed pode atenuar os efeitos negativos da exposição constante a ideais de perfeição. Boas práticas incluem:</p>
+              Inserir conteúdos positivos no feed pode atenuar os efeitos negativos da exposição constante a ideais de perfeição. Boas práticas incluem:</p>
             <ul class="bullets">
               <li>Silenciar ou deixar de seguir perfis que promovem dietas milagrosas ou idealizam um único tipo corporal.</li>
               <li>Acompanhar perfis pró-diversidade, projetos de aceitação corporal e profissionais da saúde mental.</li>
@@ -250,21 +253,21 @@ Inserir conteúdos positivos no feed pode atenuar os efeitos negativos da exposi
             </ul>
             <h3>Comunicação empática e apoio emocional</h3>
             <p>Falar sobre transtornos alimentares exige empatia e escuta ativa.
-Evite julgamentos e comentários sobre aparência; em vez disso, fale sobre comportamentos e sentimentos observáveis. Exemplos:</p>
+              Evite julgamentos e comentários sobre aparência; em vez disso, fale sobre comportamentos e sentimentos observáveis. Exemplos:</p>
             <ul class="bullets">
               <li>“Percebi que você tem pulado refeições e fiquei preocupado.”</li>
               <li>“Tenho notado algumas mudanças e quero saber como você está se sentindo.”</li>
             </ul>
             <p>Essas falas demonstram cuidado e validação emocional, em vez de reforçar culpa ou vergonha.
-Oferecer ajuda prática — como acompanhar a pessoa em uma consulta ou indicar profissionais — pode fazer grande diferença.</p>
+              Oferecer ajuda prática — como acompanhar a pessoa em uma consulta ou indicar profissionais — pode fazer grande diferença.</p>
             <h4>🚨 Procure ajuda imediata em casos de desidratação, desmaios, batimentos cardíacos irregulares, perda rápida de peso ou pensamentos suicidas. O encaminhamento rápido para serviços de emergência é essencial.</h4>
             <h3>Ações educativas e programas de prevenção</h3>
             <p>Campanhas e programas escolares são ferramentas poderosas de prevenção.
-Projetos que unem educação midiática, habilidades sociais e encaminhamento para serviços de apoio mostram resultados positivos na redução da insatisfação corporal.</p>
+              Projetos que unem educação midiática, habilidades sociais e encaminhamento para serviços de apoio mostram resultados positivos na redução da insatisfação corporal.</p>
             <ul class="bullets">
               <li>Oficinas sobre mídia e autoestima em escolas.</li>
               <li>Campanhas públicas pró-diversidade corporal em parceria com ONGs.</li>
-              <li>Capacitação de professores para identificar sinais e orientar encaminhamentos..</li>
+              <li>Capacitação de professores para identificar sinais e orientar encaminhamentos.</li>
               <li>Triagens preventivas com questionários anônimos e acompanhamento de profissionais.</li>
             </ul>
           </div>
@@ -276,15 +279,14 @@ Projetos que unem educação midiática, habilidades sociais e encaminhamento pa
         <div class="card" id="apoio" aria-labelledby="apoio-title">
           <h2 id="apoio-title">O papel das redes sociais nesse ciclo</h2>
           <p>As mídias sociais criam um ambiente de comparação constante.
-Fotos e vídeos editados constroem uma ideia de perfeição irreal, alimentando a insatisfação corporal e a autocrítica.
-Essa exposição fragiliza a autoestima e pode intensificar ansiedade, depressão e distorção da imagem corporal.</p>
+            Fotos e vídeos editados constroem uma ideia de perfeição irreal, alimentando a insatisfação corporal e a autocrítica.
+            Essa exposição fragiliza a autoestima e pode intensificar ansiedade, depressão e distorção da imagem corporal.</p>
           <h3>📸 Reflexão: O que aparece nas redes é apenas uma versão filtrada da realidade.</h3>
         </div>
         <div class="card" style="margin-top:16px" aria-labelledby="news-title">
           <h2 id="news-title">Caminhos para o uso consciente</h2>
           <p>Reconhecer que o conteúdo nas redes é seletivo e editado é essencial.
-Incentivar o diálogo sobre saúde mental, promover uso consciente das plataformas e valorizar a diversidade corporal são passos fundamentais para romper com os padrões irreais e reduzir o sofrimento emocional.</p>
-          <a href="#blog-estrategia" class="btn-verde">Saiba mais</a>
+            Incentivar o diálogo sobre saúde mental, promover uso consciente das plataformas e valorizar a diversidade corporal são passos fundamentais para romper com os padrões irreais e reduzir o sofrimento emocional.</p>
         </div>
 
         <div class="card" style="margin-top:16px">
@@ -299,105 +301,93 @@ Incentivar o diálogo sobre saúde mental, promover uso consciente das plataform
       </aside>
     </div>
     
-      <article class="card" style="margin-top:18px" id="blog" aria-labelledby="blog-estrategia">
-          <h2 id="blog-tecnicas"> Técnicas práticas para lidar com ansiedade, compulsão e autoimagem </h2>
-          <div id="tab-anorexia" class="tab-panel active" role="tabpanel">
-          <h3>Grounding — “ficar no presente”</h3>
-          <p>Serve para quando a pessoa está muito ansiosa, com pensamentos acelerados ou se sentindo desconectada do corpo.
-Ajuda a “aterrar”, voltar pro aqui e agora. Como fazer:</p>
-          
-          <ul class="bullets">
-              <li>Sinta os pés no chão e perceba o peso do corpo.</li>
-              <li>⁠Toque em algo frio ou áspero, como uma parede ou mesa</li>
-              <li>Conte de 10 a 1 devagar, dizendo pra si: “Estou segura agora.  </li>
-              <li>(Técnica 5-4-3-2-1).Olhe ao redor e nomeie: 5 coisas que vê, 4 que toca, 3 que ouve, 2 que cheira e 1 que prova</li>
-            </ul>
+    <!-- Técnicas (id único e alvo do botão do aside) -->
+    <article class="card" style="margin-top:18px" id="blog-tecnicas" aria-labelledby="blog-tecnicas-titulo">
+      <h2 id="blog-tecnicas-titulo">Técnicas práticas para lidar com ansiedade, compulsão e autoimagem</h2>
+      <div id="tecnicas-conteudo" class="tab-panel active" role="region" aria-labelledby="blog-tecnicas-titulo">
+        <h3>Grounding — “ficar no presente”</h3>
+        <p>Serve para quando a pessoa está muito ansiosa, com pensamentos acelerados ou se sentindo desconectada do corpo.
+          Ajuda a “aterrar”, voltar pro aqui e agora. Como fazer:</p>
+        <ul class="bullets">
+          <li>Sinta os pés no chão e perceba o peso do corpo.</li>
+          <li>Toque em algo frio ou áspero, como uma parede ou mesa.</li>
+          <li>Conte de 10 a 1 devagar, dizendo pra si: “Estou segura agora”.</li>
+          <li>(Técnica 5-4-3-2-1) Olhe ao redor e nomeie: 5 coisas que vê, 4 que toca, 3 que ouve, 2 que cheira e 1 que prova.</li>
+        </ul>
+        <p><strong>Objetivos:</strong> reduzir crises de ansiedade, compulsão e ruminação (pensamentos repetitivos sobre corpo ou comida).</p>
 
-          <P>Objetivos: reduz crises de ansiedade, compulsão e ruminação (pensamentos repetitivos sobre corpo ou comida).</P>
-          
-          <h3>Foco sensorial</h3>
-          <p>Usa os cinco sentidos pra “voltar pro corpo” e aliviar a tensão.
-É especialmente útil pra quem vive se criticando ou perde a noção da fome e da saciedade.
-Como fazer:
-</p>
-          <ul class="bullets">
-              <li>Observe a luz do ambiente, o som dos pássaros, o cheiro de café, o toque da roupa, o sabor da água.</li>
-              <li>Respire fundo enquanto se concentra nesses estímulos.</li>
-            </ul>
-          <p> Objetivo: reconectar-se com o corpo como um lugar seguro, e não como inimigo.</p>
+        <h3>Foco sensorial</h3>
+        <p>Usa os cinco sentidos pra “voltar pro corpo” e aliviar a tensão. É especialmente útil pra quem vive se criticando
+          ou perde a noção da fome e da saciedade. Como fazer:</p>
+        <ul class="bullets">
+          <li>Observe a luz do ambiente, o som dos pássaros, o cheiro de café, o toque da roupa, o sabor da água.</li>
+          <li>Respire fundo enquanto se concentra nesses estímulos.</li>
+        </ul>
+        <p><strong>Objetivo:</strong> reconectar-se com o corpo como um lugar seguro, e não como inimigo.</p>
 
-          <h3>Respiração “Whispered Ah”</h3>
-          <p>Uma técnica rápida pra relaxar o corpo e soltar a tensão acumulada, inclusive antes das refeições ou em momentos de crise.
-Como fazer:</p>
-            <ul class="bullets">
-              <li>Inspire lentamente pelo nariz.</li>
-              <li>Expire pela boca fazendo um som suave de “aaahhh”</li>
-              <li>Sinta o corpo relaxando — especialmente o maxilar e o pescoço.</li>
-            </ul>
-            <p>Objetivos: reduzir ansiedade, melhorar o foco e diminuir impulsos de comer compulsivamente.</p>
+        <h3>Respiração “Whispered Ah”</h3>
+        <p>Uma técnica rápida pra relaxar o corpo e soltar a tensão acumulada, inclusive antes das refeições ou em momentos de crise. Como fazer:</p>
+        <ul class="bullets">
+          <li>Inspire lentamente pelo nariz.</li>
+          <li>Expire pela boca fazendo um som suave de “aaahhh”.</li>
+          <li>Sinta o corpo relaxando — especialmente o maxilar e o pescoço.</li>
+        </ul>
+        <p><strong>Objetivos:</strong> reduzir ansiedade, melhorar o foco e diminuir impulsos de comer compulsivamente.</p>
 
-            <h3>Relaxamento autógeno</h3>
-            <p>Usa frases simples e repetitivas pra induzir calma.
-Pode ser feito de olhos fechados, sentado ou deitado.
-Exemplos de frases:</p>
-            <ul class="bullets">
-              <li>“Meu corpo está leve e tranquilo.”</li>
-              <li>“Minha respiração é calma e natural.”</li>
-              <li>“Meu estômago está sereno.”</li>
-              <li>⁠“Sinto paz e aceitação em mim.”</li>
-          </ul>
-            <p>Objetivos: acalma a mente, relaxa o corpo e ajuda a lidar com o medo de perder o controle.</p>
-            <h3>Pensamento socrático</h3>
-            <p>Serve pra questionar ideias distorcidas e pensamentos automáticos como “sou um fracasso” ou “ninguém me acha bonita”.
-Como aplicar:</p>
-            <ul class="bullets">
-                <li>Pergunte-se: “Qual é a prova de que isso é verdade?”, “O que eu diria a um amigo que pensasse isso?”</li>
-                <li>Substitua o pensamento por algo mais realista: “Posso cuidar do meu corpo sem puni-lo.”,  “Comer é parte da vida, não um erro.”</li>
-            </ul>
-            <p>Objetivo: transformar a autocrítica em autocompaixão e pensamento construtivo.</p>
+        <h3>Relaxamento autógeno</h3>
+        <p>Usa frases simples e repetitivas pra induzir calma. Pode ser feito de olhos fechados, sentado ou deitado. Exemplos de frases:</p>
+        <ul class="bullets">
+          <li>“Meu corpo está leve e tranquilo.”</li>
+          <li>“Minha respiração é calma e natural.”</li>
+          <li>“Meu estômago está sereno.”</li>
+          <li>“Sinto paz e aceitação em mim.”</li>
+        </ul>
+        <p><strong>Objetivos:</strong> acalma a mente, relaxa o corpo e ajuda a lidar com o medo de perder o controle.</p>
 
-            <h3>Técnica das “fitas e medidas”</h3>
-            <p>Ajuda a perceber a diferença entre como a pessoa acha que é e como ela realmente é.
-Como adaptar (sem terapeuta):</p>
-            <ul class="bullets">
-                <li>Com ajuda de alguém de confiança, meça partes do corpo e compare com a sua percepção.</li>
-                <li>Observe como a autoimagem pode estar distorcida.</li>
-                <li>⁠Reflita: “Será que minha cabeça está vendo o corpo como inimigo?”</li>
-            </ul>
-            <p>Essa técnica é simbólica, o foco é o aprendizado — não a medida em si.
-</p>
-            <h3>Saco de memórias</h3>
-            <p>Técnica emocional que ajuda a se desprender da “identidade da doença”.
-Como fazer:</p>
-            <ul class="bullets">
-                <li>Junte objetos ligados ao período de sofrimento (roupas antigas, anotações, fotos).</li>
-                <li>Pense no significado de cada item.</li>
-                <li>Escolha o que descartar e o que manter como lembrança de superação.</li>
-            </ul>
-            <p>
-Objetivos: encerrar ciclos, criar espaço mental e emocional pra reconstruir uma nova fase.</p>
-            <h3>Biblioterapia</h3>
-            <p>Usar leitura como forma de autoconhecimento e acolhimento.
-Como usar:</p>
-            <ul class="bullets">
-                <li>Escolha livros, textos ou histórias que falem de aceitação corporal e saúde emocional.</li>
-                <li>⁠Leia com calma, reflita sobre o que toca você.</li>
-                <li>⁠Escreva ou converse sobre o que aprendeu.</li>
-            </ul>
-            <p>Objetivos: amplia o vocabulário emocional e fortalece o autocuidado.</p>
-            
-          </div>
+        <h3>Pensamento socrático</h3>
+        <p>Serve pra questionar ideias distorcidas e pensamentos automáticos como “sou um fracasso” ou “ninguém me acha bonita”.
+          Como aplicar:</p>
+        <ul class="bullets">
+          <li>Pergunte-se: “Qual é a prova de que isso é verdade?”, “O que eu diria a um amigo que pensasse isso?”</li>
+          <li>Substitua o pensamento por algo mais realista: “Posso cuidar do meu corpo sem puni-lo.”, “Comer é parte da vida, não um erro.”</li>
+        </ul>
+        <p><strong>Objetivo:</strong> transformar a autocrítica em autocompaixão e pensamento construtivo.</p>
 
-  
-        </article>
+        <h3>Técnica das “fitas e medidas”</h3>
+        <p>Ajuda a perceber a diferença entre como a pessoa acha que é e como ela realmente é. Como adaptar (sem terapeuta):</p>
+        <ul class="bullets">
+          <li>Com ajuda de alguém de confiança, meça partes do corpo e compare com a sua percepção.</li>
+          <li>Observe como a autoimagem pode estar distorcida.</li>
+          <li>Reflita: “Será que minha cabeça está vendo o corpo como inimigo?”</li>
+        </ul>
+        <p>Essa técnica é simbólica, o foco é o aprendizado — não a medida em si.</p>
+
+        <h3>Saco de memórias</h3>
+        <p>Técnica emocional que ajuda a se desprender da “identidade da doença”. Como fazer:</p>
+        <ul class="bullets">
+          <li>Junte objetos ligados ao período de sofrimento (roupas antigas, anotações, fotos).</li>
+          <li>Pense no significado de cada item.</li>
+          <li>Escolha o que descartar e o que manter como lembrança de superação.</li>
+        </ul>
+        <p><strong>Objetivos:</strong> encerrar ciclos, criar espaço mental e emocional pra reconstruir uma nova fase.</p>
+
+        <h3>Biblioterapia</h3>
+        <p>Usar leitura como forma de autoconhecimento e acolhimento. Como usar:</p>
+        <ul class="bullets">
+          <li>Escolha livros, textos ou histórias que falem de aceitação corporal e saúde emocional.</li>
+          <li>Leia com calma, reflita sobre o que toca você.</li>
+          <li>Escreva ou converse sobre o que aprendeu.</li>
+        </ul>
+        <p><strong>Objetivos:</strong> amplia o vocabulário emocional e fortalece o autocuidado.</p>
+      </div>
+    </article>
         
     <article class="card" id="contatos-apoio" aria-labelledby="contatos-title" style="margin-top:18px">
-  <h2 id="contatos-title">🧩 Contatos e Centros de Apoio no Brasil</h2>
+  <h2 id="contatos-title">Contatos e Centros de Apoio no Brasil</h2>
 
-  <div class="two-col-lg">
+  <div class="duas-colunas">
     <!-- COLUNA ESQUERDA -->
-    <div class="col">
-      <!-- 1. Serviços nacionais -->
+    <div class="col-esquerda">
       <section class="grupo">
         <h3 class="grupo-titulo">1) Serviços nacionais de acolhimento</h3>
         <div class="bloco">
@@ -405,69 +395,39 @@ Como usar:</p>
           <p>Atendimento gratuito e confidencial, 24 horas por dia, para qualquer pessoa que precise conversar.</p>
           <ul class="dados">
             <li>📞 <strong>Telefone:</strong> <span class="tag">188</span> (ligação gratuita)</li>
-            <li>💻 <strong>Site:</strong> <a href="https://www.cvv.org.br" class="link-acao" target="_blank" rel="noopener">
-  cvv.org.br — chat online e formulário de contato
-</a></li>
+            <li>💻 <strong>Site:</strong> <a href="https://www.cvv.org.br" class="link-acao" target="_blank" rel="noopener">cvv.org.br — chat online e formulário de contato</a></li>
           </ul>
+          <!-- ✅ Imagem dentro da seção 1 -->
+      
         </div>
       </section>
-
-      <!-- 2. Centros especializados (SP) -->
+      <!-- 2. Centros especializados -->
       <section class="grupo">
         <h3 class="grupo-titulo">2) Centros especializados em transtornos alimentares</h3>
         <h4 class="subtitulo-area">🏙️ São Paulo (Capital)</h4>
         <ul class="lista-enderecos">
-          <li>
-            <strong>AMBULIM — Programa de Transtornos Alimentares (IPq/USP)</strong><br>
-            Rua Ovídio Pires de Campos, 785 – Instituto de Psiquiatria da USP.
-          </li>
-          <li>
-            <strong>PROATA — Núcleo de Atenção aos Transtornos Alimentares</strong><br>
-            Rua Major Maragliano, 241 – Vila Mariana.
-          </li>
-          <li>
-            <strong>CEPPAN — Clínica de Estudos em Psicanálise da Anorexia e Bulimia</strong><br>
-            Rua João Moura, 627 – Jardim Paulista.
-          </li>
-          <li>
-            <strong>GATDA — Grupo de Apoio ao Tratamento dos Transtornos Alimentares e da Ansiedade</strong><br>
-            Rua João Ramalho, 257, conj. 84 – Perdizes.
-          </li>
-          <li>
-            <strong>SEDES — Projeto de Investigação e Intervenção na Clínica da Anorexia e Bulimia</strong><br>
-            Rua Ministro de Godoy, 1484 – Perdizes.
-          </li>
+          <li><strong>AMBULIM — Programa de Transtornos Alimentares (IPq/USP)</strong><br>Rua Ovídio Pires de Campos, 785 – Instituto de Psiquiatria da USP.</li>
+          <li><strong>PROATA — Núcleo de Atenção aos Transtornos Alimentares</strong><br>Rua Major Maragliano, 241 – Vila Mariana.</li>
+          <li><strong>CEPPAN — Clínica de Estudos em Psicanálise da Anorexia e Bulimia</strong><br>Rua João Moura, 627 – Jardim Paulista.</li>
+          <li><strong>GATDA — Grupo de Apoio ao Tratamento dos Transtornos Alimentares e da Ansiedade</strong><br>Rua João Ramalho, 257, conj. 84 – Perdizes.</li>
+          <li><strong>SEDES — Projeto de Investigação e Intervenção na Clínica da Anorexia e Bulimia</strong><br>Rua Ministro de Godoy, 1484 – Perdizes.</li>
         </ul>
 
         <h4 class="subtitulo-area" style="margin-top:10px">🏙️ Outras regiões</h4>
         <ul class="lista-enderecos">
-          <li>
-            <strong>GRATA — USP Ribeirão Preto</strong><br>
-            Hospital das Clínicas — Telefones: (16) 3602-2366 / (16) 3602-3403.
-          </li>
-          <li>
-            <strong>GETA — UNICAMP</strong><br>
-            Ambulatório de Psiquiatria do HC — Telefone: (19) 3521-7514.
-          </li>
-          <li>
-            <strong>GOTA — Rio de Janeiro</strong><br>
-            Av. Venceslau Brás, 71 – Botafogo.
-          </li>
-          <li>
-            <strong>CETTAO — Santa Casa RJ</strong><br>
-            Rua Santa Luzia, 206 – Centro, Rio de Janeiro.
-          </li>
-          <li>
-            <strong>Ambulatório de Psiquiatria — HC/UFMG (Belo Horizonte)</strong><br>
-            Av. Alfredo Balena, 110 – Santa Efigênia. 📞 (31) 3409-9458.
-          </li>
+          <li><strong>GRATA — USP Ribeirão Preto</strong><br>Hospital das Clínicas — Telefones: (16) 3602-2366 / (16) 3602-3403.</li>
+          <li><strong>GETA — UNICAMP</strong><br>Ambulatório de Psiquiatria do HC — Telefone: (19) 3521-7514.</li>
+          <li><strong>GOTA — Rio de Janeiro</strong><br>Av. Venceslau Brás, 71 – Botafogo.</li>
+          <li><strong>CETTAO — Santa Casa RJ</strong><br>Rua Santa Luzia, 206 – Centro, Rio de Janeiro.</li>
+          <li><strong>Ambulatório de Psiquiatria — HC/UFMG (Belo Horizonte)</strong><br>Av. Alfredo Balena, 110 – Santa Efigênia. 📞 (31) 3409-9458.</li>
         </ul>
-      </section>
-    </div>
 
-    <!-- COLUNA DIREITA -->
-    <div class="col">
-      <!-- 3. Atendimento público e comunitário -->
+        <!-- IMAGEM ABAIXO E CENTRALIZADA -->
+        <div class="img-centro">
+          <img src="img/ame_seu_corpo.jpeg" alt="Imagem ilustrativa sobre autocuidado e apoio psicológico">
+        </div>
+      </section>
+
       <section class="grupo">
         <h3 class="grupo-titulo">3) Atendimento público e comunitário</h3>
         <div class="bloco">
@@ -479,51 +439,62 @@ Como usar:</p>
           <p class="dica">💡 Universidades com cursos de Psicologia, Psiquiatria ou Nutrição frequentemente possuem programas de atendimento gratuito ou de baixo custo.</p>
         </div>
       </section>
+      
+    </div>
+
+    <!-- COLUNA DIREITA -->
 
       <!-- 4. Materiais e recursos digitais -->
+      <div class="col-direita">
       <section class="grupo">
         <h3 class="grupo-titulo">4) Materiais e recursos digitais</h3>
 
         <ul class="recursos">
           <li>
+            <span class="recurso-topo">📰 Jornal Informativo sobre Imagem corporal saudável em tempos de redes sociais</span>
+            <span class="recurso-acao"><a href="https://drive.google.com/file/d/1pcl7H3SOguHMs7mONahus2cm3kl6f4Yt/view?usp=sharing" class="link-acao" target="_blank" rel="noopener">Acessar PDF</a></span>
+            <p>Esse material foi desenvolvido por Ana Larissa, Giovanna Xavier e Viviane Dias, estudantes da Graduação de Psicologia.</p>
+          </li>
+          <li>
             <span class="recurso-topo">📄 Cartilha “Você não é (só) o que você come” — UFMG / CP</span>
-            <span class="recurso-acao"><a href="https://www.google.com/url?q=https://www.cp.ufmg.br/wp-content/uploads/2023/02/Cartilha-Voce-nao-e-so-o-que-voce-come_compressed.pdf&sa=U&sqi=2&ved=2ahUKEwiB89C78sSQAxUnK7kGHUk5DMgQFnoECCUQAQ&usg=AOvVaw0JaIY09YkCe2nBJSTPW_G1" class="link-acao">Acessar Site</a></span>
+            <span class="recurso-acao"><a href="https://www.cp.ufmg.br/wp-content/uploads/2023/02/Cartilha-Voce-nao-e-so-o-que-voce-come_compressed.pdf" class="link-acao" target="_blank" rel="noopener">Acessar PDF</a></span>
             <p>Reflexões e guias práticos sobre alimentação e corpo. Leitura indicada para jovens, pais e educadores.</p>
           </li>
           <li>
             <span class="recurso-topo">📘 E-book “Transtornos Alimentares e Obesidade” — ABESO</span>
-            <span class="recurso-acao"><a href="https://abeso.org.br/wp-content/uploads/2023/11/ebook_transtornosalimentares.pdf" class="link-acao">Acessar PDF</a></span>
+            <span class="recurso-acao"><a href="https://abeso.org.br/wp-content/uploads/2023/11/ebook_transtornosalimentares.pdf" class="link-acao" target="_blank" rel="noopener">Acessar PDF</a></span>
             <p>Aborda causas, sintomas e orientações de tratamento (linguagem técnica e confiável).</p>
           </li>
           <li>
-            <span class="recurso-topo">🌿 Página “Comportamento Alimentar” — BVS / Ministério da Saúde</span>
-            <span class="recurso-acao"><a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://bvsms.saude.gov.br/comportamento-alimentar/&ved=2ahUKEwjm7tOP9sSQAxUpBLkGHfOFOPsQFnoECAcQAQ&usg=AOvVaw1BOxGM7b6UekZCedWrm8O6" class="link-acao">Acessar BVS</a></span>
-            <p>Reúne artigos, revisões e materiais educativos sobre comportamento alimentar e imagem corporal.</p>
-          </li>
-          <li>
-            <span class="recurso-topo">🍎 Diretrizes de Terapia Nutricional — ABM</span>
-            <span class="recurso-acao"><a href="https://amb.org.br/files/_BibliotecaAntiga/terapia_nutricional_no_paciente_com_transtornos_alimentares.pdf" class="link-acao">Ler documento técnico (PDF)</a></span>
-            <p>Recomendações para atuação nutricional em anorexia, bulimia e compulsão alimentar.</p>
-          </li>
-          <li>
             <span class="recurso-topo">🎧 Podcast “Como Vai Você?” — CVV</span>
-            <span class="recurso-acao"><a href="https://open.spotify.com/show/6JR6i6xAEkxKHqaYol5E2O" class="link-acao">Ouvir</a></span>
+            <span class="recurso-acao"><a href="https://open.spotify.com/show/6JR6i6xAEkxKHqaYol5E2O" class="link-acao" target="_blank" rel="noopener">Ouvir</a></span>
             <p>Episódios quinzenais sobre saúde mental, apoio emocional e empatia.</p>
           </li>
           <li>
-            <span class="recurso-topo">📖 Manual de Psicoterapias dos Transtornos Alimentares</span>
-            <span class="recurso-acao"><a href="https://www.manole.com.br/manual-de-psicoterapias-dos-transtornos-alimentares/p?srsltid=AfmBOorHUwGRLkXX_W3phmMaqUVQEjroLu-XoSjVD52eACpE6hA0art8" class="link-acao">Versão digital</a></span>
-            <p>Principais abordagens terapêuticas para anorexia, bulimia e TCA — referência para estudantes e profissionais.</p>
+            <span class="recurso-topo">🌿Página “Comportamento Alimentar” — BVS / Ministério da Saúde</span>
+            <span class="recurso-acao"><a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://bvsms.saude.gov.br/comportamento-alimentar/&ved=2ahUKEwjm7tOP9sSQAxUpBLkGHfOFOPsQFnoECAcQAQ&usg=AOvVaw1BOxGM7b6UekZCedWrm8O6" class="link-acao" target="_blank" rel="noopener">Acessar Site</a></span>
+            <p>A Biblioteca Virtual em Saúde reúne artigos, pesquisas e materiais educativos sobre comportamento alimentar, imagem corporal e nutrição. É uma fonte segura e gratuita para estudantes, profissionais da saúde e o público em geral interessados em compreender hábitos alimentares e promover uma relação equilibrada com o corpo.</p>
           </li>
           <li>
-            <span class="recurso-topo">📕 Manual de Atendimento em Transtornos Alimentares — HCPA</span>
-            <span class="recurso-acao"><a href="https://www.hcpa.edu.br/downloads/cgp_ensino/copia_de_maria_piccinini_manual_v2.pdf" class="link-acao">Acessar PDF</a></span>
-            <p>Produzido pelo Hospital de Clínicas de Porto Alegre, este manual detalha condutas clínicas, diagnóstico e tratamento dos transtornos alimentares. Indicado para profissionais e estudantes da saúde mental e nutrição.</p>
+            <span class="recurso-topo">🍎 Diretrizes de Terapia Nutricional — ABM</span>
+            <span class="recurso-acao"><a href="https://amb.org.br/files/_BibliotecaAntiga/terapia_nutricional_no_paciente_com_transtornos_alimentares.pdf" class="link-acao" target="_blank" rel="noopener">Acessar PDF</a></span>
+            <p>O documento da Associação Brasileira de Medicina oferece orientações práticas para o tratamento nutricional de pessoas com anorexia, bulimia e outros transtornos alimentares. As diretrizes foram elaboradas por especialistas e trazem recomendações atualizadas para um cuidado responsável e interdisciplinar.</p>
+          </li>
+          <li>
+            <span class="recurso-topo">📖 Manual de Psicoterapias dos Transtornos Alimentares</span>
+            <span class="recurso-acao"><a href="https://www.manole.com.br/manual-de-psicoterapias-dos-transtornos-alimentares/p?srsltid=AfmBOorHUwGRLkXX_W3phmMaqUVQEjroLu-XoSjVD52eACpE6hA0art8" class="link-acao" target="_blank" rel="noopener">Acessar Site</a></span>
+            <p>Este manual apresenta as principais abordagens psicoterapêuticas utilizadas no tratamento de transtornos alimentares. A obra aborda desde intervenções cognitivas e comportamentais até terapias familiares, ajudando profissionais e estudantes a compreenderem melhor os processos de cuidado psicológico.</p>
+          </li>
+          <li>
+            <span class="recurso-topo">📗 Material Psicoeducativo sobre os Transtornos Alimentares</span>
+            <span class="recurso-acao"><a href="https://www.hcpa.edu.br/downloads/cgp_ensino/copia_de_maria_piccinini_manual_v2.pdf" class="link-acao" target="_blank" rel="noopener">Acessar PDF</a></span>
+            <p>O material reúne informações acessíveis sobre os tipos de transtornos alimentares, seus sinais de alerta e caminhos para buscar ajuda. Produzido com base em evidências científicas, tem como objetivo conscientizar e oferecer suporte a quem enfrenta dificuldades com a alimentação e a autoimagem.</p>
           </li>
         </ul>
       </section>
+      </div>
 
-      <!-- 5. Quando buscar ajuda imediata + Dica final -->
+      <!-- 5. Quando buscar ajuda imediata -->
       <section class="grupo">
         <h3 class="grupo-titulo">5) Quando buscar ajuda imediata</h3>
         <div class="alerta">
@@ -533,7 +504,7 @@ Como usar:</p>
 
         <div class="bloco">
           <h4 class="subtitulo-area">💬 Materiais gratuitos de informação e apoio emocional</h4>
-          <p>Aprender sobre o tema e reconhecer os sinais é uma forma de cuidado e prevenção. Compartilhe materiais de qualidade — <strong>informação salva vidas</strong>. Se precisar conversar, procure o <strong>CVV (188) ou o CAPS da sua cidade. </strong>.</p>
+          <p>Aprender sobre o tema e reconhecer os sinais é uma forma de cuidado e prevenção. Compartilhe materiais de qualidade — <strong>informação salva vidas</strong>. Se precisar conversar, procure o <strong>CVV (188)</strong> ou o <strong>CAPS da sua cidade.</strong></p>
         </div>
       </section>
     </div>
@@ -541,23 +512,9 @@ Como usar:</p>
 </article>
 
     <footer>
-      <p>Projeto educativo — parceria universitária / ONG. Este site não substitui avaliação profissional.</p>
-      <p style="margin-top:8px">© <span id="ano"></span> Imagem Corporal Saudável</p>
+      <p>Projeto educativo. Este site não substitui avaliação profissional.</p>
+      <p style="margin-top:25px">© <span id="ano"></span> Imagem Corporal Saudável</p>
     </footer>
   </main>
 
-  <!-- (Opcional) Modal de teste — pode remover se não usar -->
-  <div id="modal" role="dialog" aria-hidden="true" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(3,7,18,0.5);z-index:60">
-    <div style="width:90%;max-width:520px;background:white;padding:18px;border-radius:12px">
-      <h3>Teste: Jornal (PDF)</h3>
-      <p style="color:var(--muted)">Aqui você receberia um PDF com o jornal. Este é um mockup de demonstração.</p>
-      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
-        <button id="close-modal" class="btn">Fechar</button>
-        <a href="#" id="download-pdf" class="btn btn-primary">Baixar PDF</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+  <script src="script.js" defer></script>
